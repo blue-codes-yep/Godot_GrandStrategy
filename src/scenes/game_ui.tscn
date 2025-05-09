@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6vyr70w3d8gl"]
+[gd_scene load_steps=5 format=3 uid="uid://b6vyr70w3d8gl"]
 
 [ext_resource type="Script" path="res://src/game_ui.gd" id="1_i8q2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnx6p"]
 bg_color = Color(0.129412, 0.14902, 0.180392, 0.823529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6kdg"]
+bg_color = Color(0.141176, 0.223529, 0.317647, 0.823529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4tlj"]
+bg_color = Color(0.384314, 0.623529, 0.901961, 0.2)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -46,7 +60,7 @@ theme_override_font_sizes/font_size = 22
 text = "Country Name"
 horizontal_alignment = 1
 
-[node name="InfoContainer" type="VBoxContainer"]
+[node name="InfoContainer" type="VBoxContainer" parent="CountryPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,19 +72,19 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatLabel1" type="Label"]
+[node name="StatLabel1" type="Label" parent="CountryPanel/InfoContainer"]
 layout_mode = 2
 text = "Population: 100M"
 
-[node name="StatLabel2" type="Label"]
+[node name="StatLabel2" type="Label" parent="CountryPanel/InfoContainer"]
 layout_mode = 2
 text = "Economy: Strong"
 
-[node name="StatLabel3" type="Label"]
+[node name="StatLabel3" type="Label" parent="CountryPanel/InfoContainer"]
 layout_mode = 2
 text = "Military: Moderate"
 
-[node name="SelectButton" type="Button"]
+[node name="SelectButton" type="Button" parent="CountryPanel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -84,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Select"
 
-[node name="TopPanel" type="Panel"]
+[node name="TopPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -92,7 +106,7 @@ offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qnx6p")
 
-[node name="TitleLabel" type="Label"]
+[node name="TitleLabel" type="Label" parent="TopPanel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -106,7 +120,7 @@ theme_override_font_sizes/font_size = 18
 text = "Global Strategy"
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -121,28 +135,28 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
 
-[node name="NormalModeButton" type="Button"]
+[node name="NormalModeButton" type="Button" parent="TopPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qnx6p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6kdg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q4tlj")
 text = "Normal View"
 
-[node name="PoliticalModeButton" type="Button"]
+[node name="PoliticalModeButton" type="Button" parent="TopPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qnx6p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6kdg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q4tlj")
 text = "Political View"
 
-[node name="ReturnButton" type="Button"]
+[node name="ReturnButton" type="Button" parent="TopPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qnx6p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6kdg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q4tlj")
 text = "Main Menu"
 
-[node name="InstructionsLabel" type="Label"]
+[node name="InstructionsLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

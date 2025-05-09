@@ -8,14 +8,23 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	# Connect UI elements if they exist
-	if $StartButton:
-		$StartButton.pressed.connect(_on_start_button_pressed)
+	if $ButtonsContainer/StartButton:
+		$ButtonsContainer/StartButton.pressed.connect(_on_start_button_pressed)
+		print("Start button connected")
+	else:
+		push_error("Start button not found!")
 	
-	if $OptionsButton:
-		$OptionsButton.pressed.connect(_on_options_button_pressed)
+	if $ButtonsContainer/OptionsButton:
+		$ButtonsContainer/OptionsButton.pressed.connect(_on_options_button_pressed)
+		print("Options button connected")
+	else:
+		push_error("Options button not found!")
 	
-	if $QuitButton:
-		$QuitButton.pressed.connect(_on_quit_button_pressed)
+	if $ButtonsContainer/QuitButton:
+		$ButtonsContainer/QuitButton.pressed.connect(_on_quit_button_pressed)
+		print("Quit button connected")
+	else:
+		push_error("Quit button not found!")
 
 # Start game button handler
 func _on_start_button_pressed():
@@ -27,6 +36,9 @@ func _on_start_button_pressed():
 func _on_options_button_pressed():
 	if $OptionsPanel:
 		$OptionsPanel.visible = !$OptionsPanel.visible
+		print("Options panel visibility toggled")
+	else:
+		push_error("Options panel not found!")
 
 # Quit button handler
 func _on_quit_button_pressed():

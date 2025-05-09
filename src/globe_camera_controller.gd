@@ -4,9 +4,9 @@ extends Camera3D
 @export var target_node: Node3D  # The globe we're orbiting around
 @export var orbit_speed: float = 0.5
 @export var zoom_speed: float = 0.5
-@export var min_zoom_distance: float = 5.0
-@export var max_zoom_distance: float = 50.0
-@export var initial_distance: float = 15.0
+@export var min_zoom_distance: float = 3.0  # Reduced minimum zoom distance
+@export var max_zoom_distance: float = 20.0  # Reduced maximum zoom distance
+@export var initial_distance: float = 6.0  # Significantly reduced initial distance
 @export var initial_pitch: float = 0.3  # Radians
 @export var enable_input: bool = true
 

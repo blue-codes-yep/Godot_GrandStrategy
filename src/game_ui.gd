@@ -13,14 +13,23 @@ var highlighted_position: Vector3 = Vector3.ZERO
 # Called when the node enters the scene tree for the first time
 func _ready():
 	# Connect UI buttons if they exist
-	if $ReturnButton:
-		$ReturnButton.pressed.connect(_on_return_button_pressed)
+	if $TopPanel/HBoxContainer/ReturnButton:
+		$TopPanel/HBoxContainer/ReturnButton.pressed.connect(_on_return_button_pressed)
+		print("Return button connected")
+	else:
+		push_error("Return button not found in UI")
 	
-	if $NormalModeButton:
-		$NormalModeButton.pressed.connect(_on_normal_mode_pressed)
+	if $TopPanel/HBoxContainer/NormalModeButton:
+		$TopPanel/HBoxContainer/NormalModeButton.pressed.connect(_on_normal_mode_pressed)
+		print("Normal mode button connected")
+	else:
+		push_error("Normal mode button not found in UI")
 	
-	if $PoliticalModeButton:
-		$PoliticalModeButton.pressed.connect(_on_political_mode_pressed)
+	if $TopPanel/HBoxContainer/PoliticalModeButton:
+		$TopPanel/HBoxContainer/PoliticalModeButton.pressed.connect(_on_political_mode_pressed)
+		print("Political mode button connected")
+	else:
+		push_error("Political mode button not found in UI")
 	
 	# Initialize UI elements
 	update_country_info()
