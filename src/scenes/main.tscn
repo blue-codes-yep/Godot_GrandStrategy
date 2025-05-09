@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhe07bj28obuh"]
+
+[ext_resource type="PackedScene" uid="uid://cstxm3elorevm" path="res://src/scenes/globe.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cs2oiukaishbh" path="res://src/globe_camera_controller.gd" id="2_pxmj4"]
+[ext_resource type="Script" uid="uid://detjfgqyg5rqv" path="res://src/game_controller.gd" id="3_ot2df"]
+
+[node name="main3D" type="Node3D" node_paths=PackedStringArray("globe_controller", "camera_controller")]
+script = ExtResource("3_ot2df")
+globe_controller = NodePath("Globe")
+camera_controller = NodePath("Camera3D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Globe" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target_node")]
+transform = Transform3D(0.999995, 0.00305432, 0, -0.00271231, 0.88802, 0.459797, 0.00140437, -0.459795, 0.888024, -0.0420181, 3.18597, 1.4535)
+script = ExtResource("2_pxmj4")
+target_node = NodePath("../Globe")
+min_zoom_distance = 8.0
+max_zoom_distance = 30.0

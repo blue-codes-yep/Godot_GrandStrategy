@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://cstxm3elorevm"]
+
+[ext_resource type="PackedScene" uid="uid://cnmcr3sk57o5b" path="res://assets/earth/GlobeNoTexture.glb" id="1_gbm34"]
+[ext_resource type="Script" uid="uid://bbcx2v6c17aub" path="res://src/globe_controller.gd" id="2_ae6cl"]
+[ext_resource type="Shader" uid="uid://o656jrobbf5j" path="res://assets/earth/earth_textures/shaders/base_map.gdshader" id="2_hsq1n"]
+[ext_resource type="Texture2D" uid="uid://bh5y5pukwxpac" path="res://assets/earth/earth_textures/base_map.png" id="3_ae6cl"]
+[ext_resource type="Texture2D" uid="uid://ciivoirp3aj8y" path="res://assets/earth/earth_textures/boundary_image1.png" id="4_6pss7"]
+[ext_resource type="Texture2D" uid="uid://clw5edd4svquo" path="res://assets/earth/earth_textures/height_map1.png" id="5_4v4jh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ydf2i"]
+render_priority = 0
+shader = ExtResource("2_hsq1n")
+shader_parameter/base_tex = ExtResource("3_ae6cl")
+shader_parameter/height_map = ExtResource("5_4v4jh")
+shader_parameter/border_mask = ExtResource("4_6pss7")
+shader_parameter/height_scale = 0.1
+shader_parameter/zoom_min = 10.0
+shader_parameter/zoom_max = 50.0
+shader_parameter/display_mode = 0
+shader_parameter/border_intensity = 0.7
+shader_parameter/border_color = Vector3(1, 0.8, 0)
+shader_parameter/political_color = Vector3(0.8, 0.2, 0.2)
+
+[node name="GlobeNoTexture" node_paths=PackedStringArray("globe_mesh") instance=ExtResource("1_gbm34")]
+script = ExtResource("2_ae6cl")
+globe_mesh = NodePath("Globe")
+
+[node name="Globe" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00600886, 2.38922, 0.00048852)
+material_override = SubResource("ShaderMaterial_ydf2i")

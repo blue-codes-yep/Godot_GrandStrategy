@@ -1,0 +1,167 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1l8s6fjapq6y"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_fpctj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7f3go"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 0.901961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8gpq"]
+bg_color = Color(0.141176, 0.223529, 0.317647, 0.901961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7xsy"]
+bg_color = Color(0.384314, 0.623529, 0.901961, 0.2)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fpctj")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.12549, 0.52549)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Global Strategy"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StartButton" type="Button"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_7f3go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8gpq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7xsy")
+text = "Start Game"
+
+[node name="OptionsButton" type="Button"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_7f3go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8gpq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7xsy")
+text = "Options"
+
+[node name="QuitButton" type="Button"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_7f3go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8gpq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7xsy")
+text = "Quit"
+
+[node name="OptionsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsLabel" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Options"
+horizontal_alignment = 1
+
+[node name="OptionsVBox" type="VBoxContainer" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="FullscreenHBox" type="HBoxContainer" parent="OptionsPanel/OptionsVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsPanel/OptionsVBox/FullscreenHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="FullscreenCheck" type="CheckBox" parent="OptionsPanel/OptionsVBox/FullscreenHBox"]
+layout_mode = 2
+
+[node name="VolumeHBox" type="HBoxContainer" parent="OptionsPanel/OptionsVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsPanel/OptionsVBox/VolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsPanel/OptionsVBox/VolumeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="CloseOptionsButton" type="Button" parent="OptionsPanel/OptionsVBox"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Close"
